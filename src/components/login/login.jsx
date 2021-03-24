@@ -6,7 +6,10 @@ import CustomButton from '../custom-button/custom-button';
 import fire from "../../firebase/firebase.util";
 import {auth,signInWithGoogle,signInWithFb} from '../../firebase/firebase.util';
 import './login.scss';
-
+import {Link} from 'react-router-dom';
+// import firestore from '../../firebase/firebase.util';
+// import firebase from 'firebase/app';
+// const firestore = firebase.firestore();
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -16,93 +19,77 @@ class Login extends React.Component {
       password: ''
     };
   }
+   
+    //  fetchUsers=async()=>{
+    //   const response=firestore.collection('users');
+    //   const data=await response.get();
+    //   data.docs.forEach(item=>{
+    //     // setBlogs([...blogs,])
+
+
+    //     console.log("fgfdgfdg",item.data() )
+    //    })
+    // }
+      // componentDidMount()
+      // {
+        
+      // }
+      // data.docs.forEach(item=>{
+      //  setBlogs([...users,item.data()])
+      // })
+ 
+  
   render() {
     return (
+    
       <div className='login'>
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
-
+        
         <form className='loginform' onSubmit={this.handleSubmit}>
           <FormInput
             name='email'
             type='email'
             
-            handleChange={this.handleChange}
+            onChange={(event)=>this.setState({
+              [event.target.name] : event.target.value
+          })} required
             value={this.state.email}
             label='email'
-            required
-          />
+            />
           <FormInput
             name='password'
             type='password'
             value={this.state.password}
-            handleChange={this.handleChange}
+            onChange={(event)=>this.setState({
+              [event.target.name] : event.target.value
+          })} 
             label='password'
             required
           />
           <div>
-          <button className='button' onClick={this.login}>Login</button>
+            
+          {/* <button className='button' onClick= {this.fetchUsers()} >Login</button> */}
+          <Link to={'/Directory'}><button className='button'  >Login</button></Link>
       </div>
-      
+   
+      <Link to={'/SignUp'}><text> Don't have an acount? Create here</text></Link>
+     <div></div>
           <div className='buttons'> 
            <CustomButton className='CustomButton1' onClick={signInWithGoogle} isGoogleSignIn>
-              Sign in with Google
+             Log in with Google
             </CustomButton> 
             <CustomButton className='CustomButton2' onClick={signInWithFb} isFbSignIn>
-              Sign in with fb
+            Log in with fb
             </CustomButton> 
             
            </div>
         </form>
-        <div><text> Don't have an acount? Create here</text></div>
+        {/* <div><text> Don't have an acount? Create here</text></div> */}
       </div>
     );
   }
 }
 
 export default Login;
-// ---------------------------------
-// import React, { useState } from "react";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-// import "./login.scss";
 
-// export default function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   function validateForm() {
-//     return email.length > 0 && password.length > 0;
-//   }
-
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//   }
-
-//   return (
-//     <div className="Login">
-//       <Form onSubmit={handleSubmit}>
-//         <Form.Group size="lg" controlId="email">
-//           <Form.Label>Email</Form.Label>
-//           <Form.Control
-//             autoFocus
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//         </Form.Group>
-//         <Form.Group size="lg" controlId="password">
-//           <Form.Label>Password</Form.Label>
-//           <Form.Control
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//         </Form.Group>
-//         <Button block size="lg" type="submit" disabled={!validateForm()}>
-//           Login
-//         </Button>
-//       </Form>
-//     </div>
-//   );
-// }

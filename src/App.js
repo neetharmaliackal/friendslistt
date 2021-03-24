@@ -51,7 +51,8 @@ class App extends React.Component {
           <Route path='/Signup' component={SignUp} />
           <Route path='/directory' component={Directory} />
           <Route path="/FriendDetails/:id" component={FriendDetails}/>
-          <Route
+         
+          {/* <Route
               exact
               path='/Login'
               render={() =>
@@ -61,7 +62,7 @@ class App extends React.Component {
                   <SignUp />
                 )
               }
-              />
+              /> */}
           </Switch>
             
           </Router>

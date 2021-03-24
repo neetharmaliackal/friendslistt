@@ -8,6 +8,8 @@ import {auth,signInWithGoogle,signInWithFb} from '../../firebase/firebase.util';
 import fire from "../../firebase/firebase.util";
 
 import './signup.scss';
+import Login from '../login/login';
+import {Link} from 'react-router-dom';
 
 class SignUp extends React.Component {
   constructor() {
@@ -81,7 +83,8 @@ handleChange(e){
           <div>
           <button className='button' onClick={this.login}>signup</button>
       </div>
-      <text>Already got an account?</text>
+      <Link to={'/'}><text >Already got an account? Login Here</text></Link>
+     
       <div className='buttons'> 
           
            
