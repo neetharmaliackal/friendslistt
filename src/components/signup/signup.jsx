@@ -1,7 +1,8 @@
 import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
-// import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from '../custom-button/custom-button';
+import {auth,signInWithGoogle,signInWithFb} from '../../firebase/firebase.util';
 
 // import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import fire from "../../firebase/firebase.util";
@@ -80,7 +81,17 @@ handleChange(e){
           <div>
           <button className='button' onClick={this.login}>signup</button>
       </div>
+      <text>Already got an account?</text>
+      <div className='buttons'> 
           
+           
+          <CustomButton className='CustomButton1' onClick={signInWithGoogle} isGoogleSignIn>
+            Sign in with Google
+          </CustomButton> 
+          <CustomButton className='CustomButton2' onClick={signInWithFb} isFbSignIn>
+            Sign in with fb
+          </CustomButton> 
+          </div>
         </form>
       </div>
     );

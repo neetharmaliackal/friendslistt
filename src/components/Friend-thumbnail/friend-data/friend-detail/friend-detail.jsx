@@ -17,6 +17,7 @@ const FriendDetails = ()=>{
         <div className='categoryy'>
                    <img src={SelectedFriend.picture.large}/>
                      <h1 className='title'>{SelectedFriend.name.first}</h1> 
+                  
                     <div>gender: {SelectedFriend.gender}</div>
                     <div>Age :{SelectedFriend.dob.age}</div>
                     <div>City :{SelectedFriend.location.city}</div>
@@ -25,6 +26,9 @@ const FriendDetails = ()=>{
                     <div>dob :{SelectedFriend.dob.date}</div>
                    <div>email :{SelectedFriend.email}</div>
                     <div>Phone :{SelectedFriend.phone}</div>
+                    <div>Cell:{SelectedFriend.cell}</div>
+                    <div>PostCode :{SelectedFriend.location.postcode}</div>
+                  
                     
                 </div>
     )

@@ -11,8 +11,8 @@
     // --
     position:absolute;
     top: 50%;
-    left: 50%;
-    width:30em;
+    left: 30%;
+    width:70em;
     
     // height:18em;
     margin-top: -9em; /*set to a negative number 1/2 of your height*/
@@ -24,7 +24,7 @@
 }
 .loginform{
   height: 300px;
- width: 350px;
+ width: 450px;
  background-color:   rgb(137, 212, 185);
  border-radius: 2px;
  border-bottom-left-radius: 25%; 
@@ -82,4 +82,38 @@
 .button:hover {
 
   color: rgb(1, 45, 56);
+}
+.CustomButton1{
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #57a1be;
+  color: white;
+  /* background-color:  rgba(1, 45, 56, 0.507); */
+  background-color:  rgb(18, 15, 192);
+  cursor: pointer; 
+  outline: none;
+  margin: 0px;
+  font-size:large;
+  width: 80%;
+  /* font-weight:bolder; */
+  
+  border-radius: 100px;
+
+}
+.CustomButton2{
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #57a1be;
+  color: white;
+  /* background-color:  rgba(1, 45, 56, 0.507); */
+  background-color:  rgb(235, 14, 14);
+  cursor: pointer; 
+  outline: none;
+  margin: 4px;
+  font-size:large;
+  width: 80%;
+  /* font-weight:bolder; */
+  
+  border-radius: 100px;
+
 }

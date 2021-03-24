@@ -1,47 +1,21 @@
 import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
-// import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from '../custom-button/custom-button';
 
 import fire from "../../firebase/firebase.util";
-
+import {auth,signInWithGoogle,signInWithFb} from '../../firebase/firebase.util';
 import './login.scss';
 
 class Login extends React.Component {
-  constructor(props)
-{
+  constructor(props) {
     super(props);
-    this.login = this.login.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    // this.signup = this.signup.bind(this);
-    this.state={
-        email : "",
-        password : ""
-    }
-}
-login(e){
-    e.preventDefault();
-    fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-        console.log(u)
-    }).catch((err)=>{
-        console.log(err);
-    })
-}
-// signup(e){
-//     e.preventDefault();
-//     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-//         console.log(u)
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-// }
-handleChange(e){
-    this.setState({
-        [e.target.name] : e.target.value
-    })
-}
- 
 
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
   render() {
     return (
       <div className='login'>
@@ -69,14 +43,18 @@ handleChange(e){
           <div>
           <button className='button' onClick={this.login}>Login</button>
       </div>
-          {/* <div className='buttons'> */}
-          
-            {/* <CustomButton type='submit'> Sign in </CustomButton> */}
-            {/* <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+      
+          <div className='buttons'> 
+           <CustomButton className='CustomButton1' onClick={signInWithGoogle} isGoogleSignIn>
               Sign in with Google
-            </CustomButton> */}
-          {/* </div> */}
+            </CustomButton> 
+            <CustomButton className='CustomButton2' onClick={signInWithFb} isFbSignIn>
+              Sign in with fb
+            </CustomButton> 
+            
+           </div>
         </form>
+        <div><text> Don't have an acount? Create here</text></div>
       </div>
     );
   }
